@@ -33,3 +33,7 @@ def on_balance_volume(close, volume):
             obv[i] = obv[i - 1]
 
     return obv
+
+
+def historical_vol(prices, window_size):
+    return prices.pct_change().rolling(window_size).std() * (252 ** 0.5)
